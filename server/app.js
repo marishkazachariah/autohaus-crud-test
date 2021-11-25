@@ -17,8 +17,6 @@ require("./config")(app);
 // session configuration
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-// const DB_URL = 'mongodb://localhost/project-3';
-// const DB_URL = 'mongodb+srv://nabetone:VDHzuZZ9jiidjPyx@cluster0.s6whh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const DB_URL = process.env.MONGODB_URI;
 
 app.use(
@@ -37,10 +35,8 @@ app.use(
 
 // 👇 Start handling routes here
 // Contrary to the views version, all routes are controlled from the routes/index.js
-const allRoutes = require("./routes");
-app.use("/api", allRoutes);
 
-const customers = require("./routes/customers");
+const customers = require("./routes/customerdata");
 app.use("/api/customers", customers);
 
 // for heroku deployment
