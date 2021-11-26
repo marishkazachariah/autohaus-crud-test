@@ -1,6 +1,6 @@
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import CustomersPage from './pages/CustomersPage';
+import HomePage from './pages/HomePage';
 import AddCustomer from './components/AddCustomer';
 import EditCustomerPage from './pages/EditCustomerPage';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <header>
-      <h1>Autohaus Customer Database</h1>
+      <Link to={"/"}><h1>Autohaus Customer Database</h1></Link>
       {/* TODO: Add history to component for redirect */}
       {/* I could not figure out how to pass props to this component 
       when implementing a show/hide feature form */}
@@ -26,7 +26,7 @@ function App() {
       </header>
       <Switch>
         {/* <Route exact path="/" component={CustomersPage} /> */}
-        <Route exact path="/" render={props => <CustomersPage {...props} component={CustomersPage} />} />
+        <Route exact path="/" render={props => <HomePage {...props} component={HomePage} />} />
         <Route exact path="/add" render={props => <AddCustomer {...props} component={AddCustomer} />} />
         <Route exact path="/customerdata/edit/:id" render={props => <EditCustomerPage {...props} component={EditCustomerPage} />} />
         {/* <Route exact path="/edit/:id" component={EditCustomerPage} /> */}

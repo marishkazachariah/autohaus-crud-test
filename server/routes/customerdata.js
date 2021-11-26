@@ -4,7 +4,7 @@ const Customer = require("../models/Customer");
 router.get("/", (req, res, next) => {
     Customer.find()
     .then((customerData) => {
-        console.log(customerData);
+        // console.log(customerData);
         res.status(200).json(customerData);
     })
     .catch((err) => next(err));
@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
 
 router.post("/add", (req, res, next) => {
     const { lastName, firstName, gender, street, postalCode, city } = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     Customer.create({
         lastName,
         firstName,
