@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import CustomerCard from '../components/CustomerCard';
 
-export default function CustomersPage(props) {
+export default function HomePage(props) {
 
     const [customers, setCustomer] = useState([]);
 
@@ -15,7 +15,7 @@ export default function CustomersPage(props) {
             })
             .catch(err => console.log(err))
     }
-    
+
     useEffect(() => {
         getAllCustomers();
     }, [])
