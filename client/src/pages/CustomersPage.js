@@ -34,6 +34,9 @@ export default function CustomersPage(props) {
 
     return (
         <div>
+            <h3>
+                Welcome
+            </h3>
             <table>
                 <thead>
                     <tr>
