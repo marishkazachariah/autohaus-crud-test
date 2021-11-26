@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import service from "../api/service";
+import service from '../api/service';
 
 export default function AddCustomer(props) {
   const [firstName, setFirstName] = useState("");
@@ -10,17 +10,17 @@ export default function AddCustomer(props) {
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     service
       .addNewCustomer({ firstName, lastName, gender, street, postalCode, city })
       .then((res) => {
         console.log("added new customer: ", res);
-        props.history.push("/customers");
+        props.history.push("/");
       })
       .catch((err) => console.log("Error adding customer: ", err));
   };
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
