@@ -16,7 +16,7 @@ export default function AddCustomer(props) {
     service
       .addNewCustomer({ firstName, lastName, gender, street, postalCode, city })
       .then((res) => {
-        console.log("added new customer: ", res);
+        // console.log("added new customer: ", res);
         props.history.push("/");
       })
       .catch((err) => console.log("Error adding customer: ", err));
