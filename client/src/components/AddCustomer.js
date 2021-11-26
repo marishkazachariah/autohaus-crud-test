@@ -23,7 +23,7 @@ export default function AddCustomer(props) {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="customer-form">
         <label htmlFor="firstName">First Name</label>
         <input
           type="text"
@@ -66,7 +66,7 @@ export default function AddCustomer(props) {
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button type="submit">Add New Customer</button>
+        <button type="submit" className="submit">Add New Customer</button>
       </form>
     </div>
   );

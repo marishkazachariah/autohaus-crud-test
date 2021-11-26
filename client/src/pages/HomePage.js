@@ -33,7 +33,7 @@ export default function HomePage(props) {
   return (
     <>
     <form>
-        <label htmlFor="lastName">Search by Name of NabeTone</label>
+        <label htmlFor="lastName"></label>
         <input type="search" name="lastName" id="lastName" placeholder="Search by Last Name" value={searchLastName} onChange={handleLastNameSearch} />
     </form>
     <div>
@@ -54,7 +54,7 @@ export default function HomePage(props) {
             filteredLastNames.map((customer) => (
                 <CustomerCard key={customer._id} {...customer} {...props} />
             ))
-        ) : <h3>There are no customers...</h3>}
+        ) : <></>}
           {/* {customers.map((customer) => (
             <CustomerCard key={customer._id} {...customer} {...props} />
           ))} */}
