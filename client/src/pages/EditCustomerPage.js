@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import service from '../api/service';
+import { Link } from 'react-router-dom';
 
 export default function EditCustomerPage(props) {
     
@@ -17,7 +18,7 @@ export default function EditCustomerPage(props) {
         return service
         .deleteCustomer(id)
         .then(res => {
-            console.log('customer deleted', res);
+            // console.log('customer deleted', res);
             props.history.push('/');
         })
         .catch(err => console.log(err))
@@ -95,7 +96,8 @@ export default function EditCustomerPage(props) {
                 />
                 <button type="submit">Update This Customer</button>
             </form>
-            <button onClick={() => deleteCustomer(customerId)}>Delete</button>
+            <button onClick={() => deleteCustomer(customerId)}>Delete This Customer</button>
+            <Link to={"/"}><h3>Back to  Customer Database</h3></Link>
         </div>
     )
 }
