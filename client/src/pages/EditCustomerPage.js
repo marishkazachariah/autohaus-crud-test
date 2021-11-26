@@ -13,7 +13,7 @@ export default function EditCustomerPage(props) {
     const customerId = props.match.params.id;
     
     useEffect(() => {
-        axios.get(`/api/customers/${customerId}`)
+        axios.get(`/api/customerdata/${customerId}`)
         .then(res => {
             setFirstName(res.data.firstName);
             setLastName(res.data.lastName);
@@ -28,7 +28,7 @@ export default function EditCustomerPage(props) {
     const handleSubmit = e => {
         e.preventDefault();
         const reqBody = { firstName, lastName, gender, street, postalCode, city };
-        axios.put(`/api/customers/${customerId}`, reqBody)
+        axios.put(`/api/customerdata/${customerId}`, reqBody)
             .then(res => {
                 props.history.push('/');
             })

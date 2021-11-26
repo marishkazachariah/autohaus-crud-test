@@ -16,7 +16,7 @@ export default function AddCustomer(props) {
       .addNewCustomer({ firstName, lastName, gender, street, postalCode, city })
       .then((res) => {
         console.log("added new customer: ", res);
-        props.history.push("/");
+        props.history.push("/customers");
       })
       .catch((err) => console.log("Error adding customer: ", err));
   };
@@ -24,6 +24,7 @@ export default function AddCustomer(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="firstName">First Name</label>
         <input
           type="text"
           name="firstName"
@@ -49,7 +50,7 @@ export default function AddCustomer(props) {
           type="text"
           name="street"
           value={street}
-          onChange={(e) => setPostalCode(e.target.value)}
+          onChange={(e) => setStreet(e.target.value)}
         />
         <label htmlFor="postalCode">Postal Code</label>
         <input

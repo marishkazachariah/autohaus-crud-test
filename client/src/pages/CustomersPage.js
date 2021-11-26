@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 export default function CustomersPage(props) {
 
-    const [customer, setCustomer] = useState(null);
-    const customerId = props.match.params.id;
+    const [customer, setCustomer] = useState([]);
+    //customerId = props.match.params.id;
 
     const getCustomerDetails = () => {
-        axios.get(`/api/customers/${customerId}`)
+        axios.get(`/api/customerdata`)
             .then(res => {
-                console.log(res.data);
+                console.log("customer data:", res.data);
                 setCustomer(res.data);
             })
             .catch(err => console.log(err))
@@ -20,7 +20,7 @@ export default function CustomersPage(props) {
     
     useEffect(() => {
         getCustomerDetails();
-    })
+    }, [])
 
     const deleteCustomer = (id) => {
         return service
@@ -34,9 +34,6 @@ export default function CustomersPage(props) {
 
     return (
         <div>
-            <h3>
-                Welcome
-            </h3>
             <table>
                 <thead>
                     <tr>

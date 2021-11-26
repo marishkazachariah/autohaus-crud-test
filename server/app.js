@@ -37,7 +37,7 @@ app.use(
 // Contrary to the views version, all routes are controlled from the routes/index.js
 
 const customers = require("./routes/customerdata");
-app.use("/api/customers", customers);
+app.use("/api/customerdata", customers);
 
 // for heroku deployment
 const path = require('path');

@@ -12,13 +12,13 @@ const errorHandler = (err) => {
 
 const addNewCustomer = (newCustomer) => {
   return service
-    .post("/customers/customer", newCustomer)
+    .post("/customerdata/add", newCustomer)
     .then((res) => res.data)
     .catch(errorHandler);
 };
 
 const deleteCustomer = (customerId) => {
-    return service.delete(`/customers/${customerId}`)
+    return service.delete(`/customerdata/${customerId}`)
     .then((res) => res.data)
     .catch(errorHandler);
 }
