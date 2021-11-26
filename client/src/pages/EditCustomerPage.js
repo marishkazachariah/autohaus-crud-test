@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import service from '../api/service';
 
 export default function EditCustomerPage(props) {
     
@@ -12,6 +13,16 @@ export default function EditCustomerPage(props) {
     const [city, setCity] = useState("");
     const customerId = props.match.params.id;
     
+    const deleteCustomer = (id) => {
+        return service
+        .deleteCustomer(id)
+        .then(res => {
+            console.log('customer deleted', res);
+            props.history.push('/');
+        })
+        .catch(err => console.log(err))
+    }
+
     useEffect(() => {
         axios.get(`/api/customerdata/${customerId}`)
         .then(res => {
@@ -84,6 +95,7 @@ export default function EditCustomerPage(props) {
                 />
                 <button type="submit">Update This Customer</button>
             </form>
+            <button onClick={() => deleteCustomer(customerId)}>Delete</button>
         </div>
     )
 }
