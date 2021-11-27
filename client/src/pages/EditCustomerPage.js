@@ -78,7 +78,7 @@ export default function EditCustomerPage(props) {
           type="text"
           name="street"
           value={street}
-          onChange={(e) => setPostalCode(e.target.value)}
+          onChange={(e) => setStreet(e.target.value)}
         />
         <label htmlFor="postalCode">Postal Code</label>
         <input
